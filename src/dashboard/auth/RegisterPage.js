@@ -1,41 +1,78 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import LoginPage from './LoginPage'
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 function RegisterPage() {
 
-    let [data, setData] = useState({});
-    let [flag, setFlag] = useState(true);
+    const [data, setData] = useState({});
+    const [userdata, setUserData] = useState([]);
+    const navigate = useNavigate();
+    const inputref = useRef();
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    // const focus = () => {
+    //     inputref.current.focus();
+    // }
 
     const getdata = (event) => {
-        setFlag(!flag);
         setData({
             ...data,
             [event.target.name]: event.target.value
-        })
+        });
         console.log(data);
-    }
-
-    const register = () => {
-        console.log('registerd');
     };
 
-    useEffect(() => {
-        register();
-    }, [flag]);
+    const onsubmit = (mydata) => {
+        console.log(mydata);
+    }
+
+    // const register = () => {
+    //     if (data.username && data.email && data.password) {
+    //         userdata.push(data);
+    //         localStorage.setItem('userdata', JSON.stringify(userdata));
+    //         alert('registration successful');
+    //         navigate('/');
+    //     } else {
+    //         alert('all fields are required');
+    //     }
+
+    // };
+
+    // useEffect(() => {
+    //     focus();
+    // }, []);
 
     return (
         <Fragment>
-            <h1>register</h1>
-            <input type='text' placeholder='enter name' name='username' onInput={getdata} />
-            <input type='email' placeholder='enter email' name='email' onInput={getdata} />
-            <input type='number' placeholder='enter contact' name='contact' onInput={getdata} />
-            <input type='password' placeholder='enter password' name='password' onInput={getdata} />
-            <button onClick={register}>register</button>
-
-            <h1>{data.username}</h1>
-            <h1>{data.email}</h1>
-            <h1>{data.contact}</h1>
-            <h1>{data.password}</h1>
+            <h3 className='bg-warning p-3 text-center'>REGISTER PAGE</h3>
+            <div className='container-fluid'>
+                {/* <div className='row justify-content-center'>
+                    <div className='col-lg-4'>
+                        
+                        <input ref={inputref} type='text' className='form-control m-2' placeholder='enter username' name='username' onInput={getdata} />
+                        <input type='text' className='form-control m-2' placeholder='enter email' name='email' onInput={getdata} />
+                        <input type='text' className='form-control m-2' placeholder='enter mobile' name='mobile' onInput={getdata} />
+                        <input type='text' className='form-control m-2' placeholder='enter address' name='address' onInput={getdata} />
+                        <input type='text' className='form-control m-2' placeholder='enter password' name='password' onInput={getdata} />
+                        <button type="button" class="btn btn-warning w-100 m-2" onClick={register}>REGISTER</button>
+                    </div>
+                </div> */}
+                <div className='row justify-content-center'>
+                    <div className='col-lg-4'>
+                        <form onSubmit={handleSubmit(onsubmit)}>
+                            <input type='text' className='form-control' placeholder='username'{...register('userName', { required: true })} />
+                            {errors.userName && <p className='text-danger'>*username is required.</p>}
+                            <input type='text' className='form-control m-2' placeholder='enter email' name='email' onInput={getdata} />
+                            <input type='text' className='form-control m-2' placeholder='enter mobile' name='mobile' onInput={getdata} />
+                            <input type='text' className='form-control m-2' placeholder='enter address' name='address' onInput={getdata} />
+                            <input type='text' className='form-control m-2' placeholder='enter password' name='password' onInput={getdata} />
+                            <input type='submit' className='btn btn-warning w-100 m-2' />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </Fragment>
     )
 }
