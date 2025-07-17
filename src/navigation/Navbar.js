@@ -19,7 +19,10 @@ function Navbar() {
                 <Link to="/register" className='mx-5'>Register Page</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Pricing</a>
+                <Link to="/mapping" className='mx-5'>Data Mapping</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/fetch-api" className='mx-5'>FETCH API METHOD</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
