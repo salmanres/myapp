@@ -22,6 +22,9 @@ function Navbar() {
                 <Link to="/mapping" className='mx-5'>Data Mapping</Link>
               </li>
               <li className="nav-item">
+                <Link to="/redux" className='mx-5'>REDUX</Link>
+              </li>
+              <li className="nav-item">
                 <Link to="/fetch-api" className='mx-5'>FETCH API METHOD</Link>
               </li>
               <li className="nav-item">
