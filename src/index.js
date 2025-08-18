@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import LandingPage from './dashboard/LandingPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ContactUsPage from './dashboard/ContactUsPage';
+import HomePage from './dashboard/HomePage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,13 +15,15 @@ root.render(
     {/* routing */}
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<LandingPage />} />
-        <Route path='/contact-us' element={<ContactUsPage />} />
+        <Route path='/' element={<LandingPage />} >
+          <Route path='' element={<HomePage />} />
+          <Route path='/contact-us' element={<ContactUsPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
 
-// root file
+// root file  
 
 reportWebVitals();
