@@ -8,7 +8,7 @@ function LandingPage() {
         <Fragment>
             <Navbar />
             <div className="parent-container">
-                <Sidebar />
+                <Sidebar msg="this is a prop" />
                 <Outlet />
             </div>
         </Fragment>
