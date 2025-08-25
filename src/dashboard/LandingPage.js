@@ -7,10 +7,11 @@ function LandingPage() {
     return (
         <Fragment>
             <Navbar />
-            <div className="parent-container">
+            {/* <div className="parent-container">
                 <Sidebar msg="this is a prop" />
-                <Outlet />
-            </div>
+                
+            </div> */}
+            <Outlet />
         </Fragment>
     )
 }

@@ -11,6 +11,8 @@ function Sidebar(prop) {
                 <ul>
                     <li><Link to="/"><FaHome />   HOME</Link></li>
                     <li> <Link to="/contact-us"><MdContactPhone />   CONTACT US</Link></li>
+                    <li> <Link to="/login"><MdContactPhone />   LOGIN </Link></li>
+                    <li> <Link to="/userdata"><MdContactPhone />   userdata </Link></li>
                     {/* <li> <Link to="/contact-us"><MdContactPhone />{prop.msg}</Link></li> */}
                 </ul>
             </div>
