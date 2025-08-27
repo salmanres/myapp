@@ -12,6 +12,7 @@ import UserData from './UserData';
 import UserDetails from './dashboard/UserDetails';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
+import ProductsPage from './dashboard/ProductsPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,6 +27,7 @@ root.render(
           <Route path='/login' element={<LoginPage />} />
           <Route path='/userdata' element={<UserData />} />
           <Route path='/userdetails/:id' element={<UserDetails />} />
+          <Route path='/products' element={<ProductsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

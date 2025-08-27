@@ -41,3 +41,24 @@ body {
 .mybtn{
   height: 40px;
 }
+
+.mydiv{
+  border: 1px solid red;
+  background-color: gray;
+  height: 200px;
+  width: 50%;
+}
+
+.mydiv2{
+  border: 1px solid red;
+  background-color: yellow;
+  height: 200px;
+  width: 50%;
+}
+
+.myheading{
+  background-color: darkslategray;
+  color: white;
+  padding: 10px;
+  font-size: 22px;
+}
