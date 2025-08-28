@@ -62,3 +62,15 @@ body {
   padding: 10px;
   font-size: 22px;
 }
+
+.register-form{
+  display: flex;
+  justify-content: center;
+}
+
+.register-form div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
