@@ -14,6 +14,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import ProductsPage from './dashboard/ProductsPage';
 import RegisterPage from './dashboard/RegisterPage';
+import ReactHookForm from './dashboard/ReactHookForm';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,6 +31,7 @@ root.render(
           <Route path='/userdetails/:id' element={<UserDetails />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/register' element={<RegisterPage />} />
+          <Route path='/hook-form' element={<ReactHookForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
