@@ -25,6 +25,9 @@ function Navbar() {
                                 <Link className="nav-link" to='/hook-form'>React Hook Form</Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" to='/userdataapi'>user data</Link>
+                            </li>
+                            <li className="nav-item">
                                 <a className="nav-link" href="#">Pricing</a>
                             </li>
                             <li className="nav-item">

@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import ChildComp from "./ChildComp";
 import { Link } from "react-router-dom";
+import wlp from './images/wlp.jpg'
 
 function HomePage() {
 
@@ -10,13 +11,13 @@ function HomePage() {
             <div id="carouselExample" className="carousel slide">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="img1.jpg" className="d-block w-100" alt="..." />
+                        <img src="cadseekhobanner2.png" className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="img2.jpg" className="d-block w-100" alt="..." />
+                        <img src={wlp} className="d-block w-100" alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src="img3.jpg" className="d-block w-100" alt="..." />
+                        <img src="https://c4.wallpaperflare.com/wallpaper/586/603/742/minimalism-4k-for-mac-desktop-wallpaper-preview.jpg" className="d-block w-100" alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
