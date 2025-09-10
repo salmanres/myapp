@@ -19,34 +19,40 @@ import "bootstrap/dist/js/bootstrap.bundle.js";
 import RegisterPage from './dashboard/RegisterPage';
 import ReactHookForm from './dashboard/ReactHookForm';
 import UserDataApi from './dashboard/UserData';
+import ReduxPage from './dashboard/ReduxPage';
+import { Provider } from 'react-redux';
+import { MyStore } from './dashboard/redux/MyStore';
 const LazyComponent = React.lazy(() => import('./dashboard/ProductsPage'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* routing */}
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<LandingPage />} >
-          <Route path='' element={<HomePage />} />
-          <Route path='/contact-us' element={<ContactUsPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/userdetails/:id' element={<UserDetails />} />
+    <Provider store={MyStore}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<LandingPage />} >
+            <Route path='' element={<HomePage />} />
+            <Route path='/contact-us' element={<ContactUsPage />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/userdetails/:id' element={<UserDetails />} />
 
-          <Route path='/products' element={
-            <Suspense fallback={<div class="spinner-border text-warning" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>}>
-              <LazyComponent />
-            </Suspense>
-          } />
+            <Route path='/products' element={
+              <Suspense fallback={<div class="spinner-border text-warning" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>}>
+                <LazyComponent />
+              </Suspense>
+            } />
 
-          <Route path='/register' element={<RegisterPage />} />
-          <Route path='/hook-form' element={<ReactHookForm />} />
-          <Route path='/userdataapi' element={<UserDataApi/>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+            <Route path='/register' element={<RegisterPage />} />
+            <Route path='/hook-form' element={<ReactHookForm />} />
+            <Route path='/userdataapi' element={<UserDataApi />} />
+            <Route path='/redux' element={<ReduxPage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

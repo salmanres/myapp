@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function ProductsPage() {
+
+    const counter = useSelector((state)=>state.counter.value);
 
     const [data, setdata] = useState(
         [
@@ -28,7 +31,7 @@ function ProductsPage() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-lg-6 col-md-8 col-sm-12 col-12 mydiv">
-
+                        <h1>counter is - {counter}</h1>
                     </div>
                     <div className="col-lg-6 col-md-4 col-sm-12 col-12 mydiv2">
 
