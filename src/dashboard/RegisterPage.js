@@ -1,53 +1,40 @@
 import React, { Fragment, useState } from "react";
 // import { toast, ToastContainer } from "react-toastify";
+import axios from 'axios';
 
 function RegisterPage() {
 
     const [data, setdata] = useState({
-        name:"",
-        email:"",
-        mobile:"",
-        password:""
+        username: "",
+        email: "",
+        password: ""
     });
-    const [loader, setloader] = useState(true);
 
-    const getdata = (item) => {
-        if (data.name == "" || data.mobile == "" || data.email == "" || data.password == "") {
-            setloader(true);
-        } else {
-           setloader(false)
-        }
+    const getdata = (event) => {
         setdata({
-            ...data, //spread operator
-            [item.target.name]: item.target.value
+            ...data,
+            [event.target.name]:event.target.value
         });
         console.log(data);
     };
 
-    const handleRegister = () => {
-        if (data.name == "" || data.mobile == "" || data.email == "" || data.password == "") {
-            alert('all fields required');
-        } else {
-            localStorage.setItem('myuserdata', JSON.stringify(data));
-            alert('successful registration');
-        }
-        // toast.success('registration successful');
+
+    const register = async () => {
+        try{
+            const response = await axios.post('http://localhost:4500/register', data);
+            console.log(response.data);
+        }catch(err){
+            console.log(err);
+        };
     };
 
     return (
         <Fragment>
-            <div className="container-fluid">
-                <div className="row register-form">
-                    <div className="col-lg-5 mt-5 ">
-                        <input className="form-control mb-3" type="text" placeholder="enter name" name="name" onInput={getdata} />
-                        <input className="form-control mb-3" type="email" placeholder="enter email" name="email" onInput={getdata} />
-                        <input className="form-control mb-3" type="number" placeholder="enter mobile" name="mobile" onInput={getdata} />
-                        <input className="form-control mb-3" type="password" placeholder="enter password" name="password" onInput={getdata} />
-                        <button disabled={loader} className="btn btn-warning w-100" onClick={handleRegister}>Register</button>
-                    </div>
-                </div>
-            </div>
-            {/* <ToastContainer/> */}
+            <input type="text" placeholder="enter username" name="username" onInput={getdata} />
+            <input type="email" placeholder="enter email" name="email" onInput={getdata} />
+            <input type="password" placeholder="enter password" name="password" onInput={getdata}/>
+            <button onClick={register}>REGISTER</button>
+
         </Fragment>
     )
 };
