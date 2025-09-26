@@ -22,6 +22,7 @@ import UserDataApi from './dashboard/UserData';
 import ReduxPage from './dashboard/ReduxPage';
 import { Provider } from 'react-redux';
 import { MyStore } from './dashboard/redux/MyStore';
+import ViewUserDetails from './dashboard/ViewUserDetails';
 const LazyComponent = React.lazy(() => import('./dashboard/ProductsPage'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -49,6 +50,7 @@ root.render(
             <Route path='/hook-form' element={<ReactHookForm />} />
             <Route path='/userdataapi' element={<UserDataApi />} />
             <Route path='/redux' element={<ReduxPage />} />
+            <Route path='/view-user-details/:id' element={<ViewUserDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>

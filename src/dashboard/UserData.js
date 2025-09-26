@@ -37,6 +37,14 @@ function UserDataApi() {
         navigate(`/userdetails/${id}`)
     }
 
+    const viewuserdetails = async (id) => {
+        try{
+            navigate(`/view-user-details/${id}`);
+        }catch(err){
+            console.log(err);
+        };
+    };
+
     useEffect(() => {
         getdata();
     }, []);
@@ -62,8 +70,8 @@ function UserDataApi() {
                             <td>{item.email}</td>
                             <td>{item.password}</td>
                             <td>
-                                <button type="button" class="btn btn-warning btn-sm" onClick={()=>getdetails(item._id)}>DETAILS</button>
-                                <button type="button" class="btn btn-danger btn-sm mx-2">EDIT</button>
+                                <button type="button" class="btn btn-warning btn-sm" onClick={()=>getdetails(item._id)}>EDIT</button>
+                                <button type="button" class="btn btn-danger btn-sm mx-2" onClick={()=>viewuserdetails(item._id)}>VIEW DETAILS</button>
                                 <button type="button" class="btn btn-secondary btn-sm" onClick={() => deletedata(item._id)}>DELETE</button>
                             </td>
                         </tr>
