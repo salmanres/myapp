@@ -23,6 +23,7 @@ function RegisterPage() {
         try{
             const response = await axios.post('http://localhost:4500/register', data);
             console.log(response.data);
+            alert(response.data);
         }catch(err){
             console.log(err);
         };
